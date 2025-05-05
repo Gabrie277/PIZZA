@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const Header = () => {
   const [menuAberto, setMenuAberto] = useState(false);
@@ -20,7 +21,7 @@ const Header = () => {
         {/* Logo */}
         <h1 className="text-2xl font-bold">Meu Portfólio</h1>
 
-        {/* Botão de menu (só mostra quando menu está fechado) */}
+        {/* Botão de abrir menu (aparece apenas quando menu está fechado) */}
         {!menuAberto && (
           <button
             className="md:hidden focus:outline-none"
@@ -51,7 +52,7 @@ const Header = () => {
               menuAberto ? 'translate-x-0' : 'translate-x-full'
             } fixed top-0 right-0 h-full w-64 bg-gray-800 shadow-lg transition-transform duration-300 z-50 md:static md:translate-x-0 md:h-auto md:w-auto md:bg-transparent md:shadow-none md:flex md:items-center`}
           >
-            {/* Botão de fechar (só mobile) */}
+            {/* Botão de fechar (só aparece no mobile) */}
             <div className="flex justify-end md:hidden p-4">
               <button
                 className="text-white"
@@ -77,35 +78,34 @@ const Header = () => {
 
             <ul className="flex flex-col md:flex-row md:space-x-6 p-4 md:p-0">
               <li>
-                <a href="/#hero" className="block py-2 md:py-0 hover:text-gray-300">
+                <Link href="/#hero" className="block py-2 md:py-0 hover:text-gray-300">
                   Início
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#skills" className="block py-2 md:py-0 hover:text-gray-300">
+                <Link href="#Projects" className="block py-2 md:py-0 hover:text-gray-300">
                   Cardápio
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#projects" className="block py-2 md:py-0 hover:text-gray-300">
+                <Link href="/#projects" className="block py-2 md:py-0 hover:text-gray-300">
                   Promoção
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/Pizza" className="block py-2 md:py-0 hover:text-gray-300">
+                <Link href="/Pizza" className="block py-2 md:py-0 hover:text-gray-300">
                   Pizza
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/acai" className="block py-2 md:py-0 hover:text-gray-300">
-
+                <Link href="/acai" className="block py-2 md:py-0 hover:text-gray-300">
                   Açaí
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#contact" className="block py-2 md:py-0 hover:text-gray-300">
+                <Link href="/#contact" className="block py-2 md:py-0 hover:text-gray-300">
                   Contato
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
