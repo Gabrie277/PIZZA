@@ -86,10 +86,10 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="bg-gray-100 py-10">
-      <div className="container mx-auto">
+    <section id="projects" className="bg-gray-100 py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-8">Pizzas</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
@@ -99,7 +99,7 @@ const Projects = () => {
                 <img
                   src={project.imagem}
                   alt={project.title}
-                  className="w-40 h-40 object-cover rounded-full mb-4 mx-auto"
+                  className="w-40 h-40 sm:w-48 sm:h-48 object-cover rounded-full mb-4 mx-auto"
                 />
               )}
               <h3 className="text-xl font-bold mb-2 text-center">{project.title}</h3>

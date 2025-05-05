@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 
 interface Project {
@@ -30,34 +32,36 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="bg-gray-100 py-10">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Promoção da Semana</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <section id="projects" className="bg-gray-100 py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-10">Promoção da Semana</h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white p-5 rounded-lg shadow-lg hover:shadow-2xl transition text-center"
+              className="bg-white p-5 rounded-xl shadow hover:shadow-lg transition-all duration-300 text-center"
             >
               {project.imagem && (
                 <img
                   src={project.imagem}
                   alt={project.title}
-                  className="w-60 h-60 object-cover rounded-full mx-auto mb-4" // Ajuste de tamanho das imagens
+                  className="w-40 h-40 sm:w-48 sm:h-48 object-cover rounded-full mx-auto mb-4"
                 />
               )}
-              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <p className="text-gray-700 mb-4">{project.description}</p>
+              <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
+              <p className="text-gray-700 text-sm mb-4">{project.description}</p>
               <a
-                href={project.link} // Removido o target="_blank" para navegação interna
-                className="text-blue-500 hover:underline"
+                href={project.link}
+                className="inline-block text-blue-600 hover:text-blue-800 font-medium"
               >
                 Ver projeto
               </a>
             </div>
           ))}
         </div>
-        <div className="text-center mt-8">
+
+        <div className="text-center mt-10">
           <a
             href="/projects"
             className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition"

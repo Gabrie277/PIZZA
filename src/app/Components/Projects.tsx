@@ -32,33 +32,34 @@ const Projects = () => {
     {
       title: "Hambúrguer",
       description: "A partir de R$30,00.",
-      link: "/hamburguer", // Corrigido aqui
+      link: "/hamburguer",
       imagem: "https://static.itdg.com.br/images/640-440/49687a8a7a7110c7f560b9c7e96a9d0e/254679-shutterstock-364110890-1-.jpg",
     },
   ];
 
   return (
-    <section id="projects" className="bg-gray-100 py-10">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-8">Cardápio</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <section id="projects" className="bg-gray-100 py-10 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-10">Cardápio</h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white p-5 rounded-lg shadow hover:shadow-lg transition text-center"
+              className="bg-white p-5 rounded-xl shadow hover:shadow-lg transition-all duration-300 text-center"
             >
               {project.imagem && (
                 <img
                   src={project.imagem}
                   alt={project.title}
-                  className="w-40 h-40 object-cover rounded-full mb-4 mx-auto"
+                  className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-full mx-auto mb-4"
                 />
               )}
-              <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-              <p className="text-gray-700 mb-4">{project.description}</p>
+              <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
+              <p className="text-gray-700 text-sm mb-4">{project.description}</p>
               <a
                 href={project.link}
-                className="text-blue-500 hover:underline"
+                className="inline-block text-blue-600 hover:text-blue-800 font-medium"
               >
                 Ver produto
               </a>
@@ -66,7 +67,7 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="text-center mt-8">
+        <div className="text-center mt-10">
           <a
             href="/projects"
             className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition"
