@@ -19,11 +19,14 @@ const Header = () => {
   // Função para rolar até a seção de projetos
   const scrollToProjects = () => {
     if (pathname === '/') {
-      document?.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+      const element = document.getElementById('projects');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
       router.push('/#projects');
     }
-    setMenuAberto(false);
+    setMenuAberto(false); // Fechar o menu após rolar
   };
 
   const getLinkClass = (path: string) => {
@@ -67,35 +70,38 @@ const Header = () => {
             {/* Menu Links */}
             <ul className="flex flex-col md:flex-row md:space-x-6 p-4 md:p-0">
               <li>
-                <Link href="/#hero" className={getLinkClass('/#hero')}>
+                <Link href="/#hero" className={getLinkClass('/#hero')} onClick={() => setMenuAberto(false)}>
                   Início
                 </Link>
               </li>
               <li>
-                <Link href="/#skills" className={getLinkClass('/#skills')}>
+                <Link href="/#skills" className={getLinkClass('/#skills')} onClick={() => setMenuAberto(false)}>
                   Nosso Cardápio
                 </Link>
               </li>
               <li>
-                <Link href="/PizzaComponent" className={getLinkClass('/PizzaComponent')}>
+                <Link href="/PizzaComponent" className={getLinkClass('/PizzaComponent')} onClick={() => setMenuAberto(false)}>
                   Pizza
                 </Link>
               </li>
               <li>
-                <Link href="/PizzaGrande" className={getLinkClass('/PizzaGrande')}>
+                <Link href="/PizzaGrande" className={getLinkClass('/PizzaGrande')} onClick={() => setMenuAberto(false)}>
                   Pizza Grande
                 </Link>
               </li>
               <li>
-                <Link href="/AcaiItem" className={getLinkClass('/AcaiItem')}>
+                <Link href="/AcaiItem" className={getLinkClass('/AcaiItem')} onClick={() => setMenuAberto(false)}>
                   Açaí
                 </Link>
               </li>
               {/* Usando scrollToProjects para rolar até a seção de projetos */}
-              
-                
               <li>
-                <Link href="/#contact" className={getLinkClass('/#contact')}>
+                <button onClick={scrollToProjects} className={getLinkClass('/#projects')}>
+                  
+                </button>
+              </li>
+              <li>
+                <Link href="/#contact" className={getLinkClass('/#contact')} onClick={() => setMenuAberto(false)}>
                   Contato
                 </Link>
               </li>
