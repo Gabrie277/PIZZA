@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Landing Page</title>
+        <title>Pizzaria e Hambúrgueria</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>
