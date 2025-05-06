@@ -92,11 +92,8 @@ const Header = () => {
                 </Link>
               </li>
               {/* Usando scrollToProjects para rolar até a seção de projetos */}
-              <li>
-                <button onClick={scrollToProjects} className={getLinkClass('/#projects')}>
-                  Projetos
-                </button>
-              </li>
+              
+                
               <li>
                 <Link href="/#contact" className={getLinkClass('/#contact')}>
                   Contato
