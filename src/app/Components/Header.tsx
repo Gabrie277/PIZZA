@@ -16,13 +16,20 @@ const Header = () => {
     setIsClient(true);
   }, []);
 
-  const irParaCardapio = () => {
+  // Função para rolar até a seção de projetos
+  const scrollToProjects = () => {
     if (pathname === '/') {
       document?.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
     } else {
       router.push('/#projects');
     }
     setMenuAberto(false);
+  };
+
+  const getLinkClass = (path: string) => {
+    return pathname === path
+      ? 'block py-2 md:py-0 hover:text-gray-300 text-blue-500'
+      : 'block py-2 md:py-0 hover:text-gray-300';
   };
 
   return (
@@ -32,18 +39,22 @@ const Header = () => {
         <h1 className="text-2xl font-bold">Meu Portfólio</h1>
 
         {/* Botão Mobile */}
-        {!menuAberto && (
-          <button className="md:hidden" onClick={toggleMenu} aria-label="Abrir menu">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        )}
+        <button
+          className="md:hidden"
+          onClick={toggleMenu}
+          aria-label="Abrir menu"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
 
         {isClient && (
-          <nav className={`${
+          <nav
+            className={`${
               menuAberto ? 'translate-x-0' : 'translate-x-full'
-            } fixed top-0 right-0 h-full w-64 bg-gray-800 shadow-lg transition-transform duration-300 md:static md:translate-x-0 md:h-auto md:w-auto md:bg-transparent md:shadow-none md:flex md:items-center`}>
+            } fixed top-0 right-0 h-full w-64 bg-gray-800 shadow-lg transition-transform duration-300 md:static md:translate-x-0 md:h-auto md:w-auto md:bg-transparent md:shadow-none md:flex md:items-center`}
+          >
             {/* Botão fechar (mobile) */}
             <div className="flex justify-end md:hidden p-4">
               <button onClick={toggleMenu} aria-label="Fechar menu">
@@ -56,32 +67,38 @@ const Header = () => {
             {/* Menu Links */}
             <ul className="flex flex-col md:flex-row md:space-x-6 p-4 md:p-0">
               <li>
-                <Link href="/#hero" className="block py-2 md:py-0 hover:text-gray-300">
+                <Link href="/#hero" className={getLinkClass('/#hero')}>
                   Início
                 </Link>
               </li>
               <li>
-                <Link href="/#skills" className="block py-2 md:py-0 hover:text-gray-300">
+                <Link href="/#skills" className={getLinkClass('/#skills')}>
                   Nosso Cardápio
                 </Link>
               </li>
               <li>
-                <Link href="/PizzaComponent" className="block py-2 md:py-0 hover:text-gray-300">
+                <Link href="/PizzaComponent" className={getLinkClass('/PizzaComponent')}>
                   Pizza
                 </Link>
               </li>
               <li>
-                <Link href="/PizzaGrande" className="block py-2 md:py-0 hover:text-gray-300">
+                <Link href="/PizzaGrande" className={getLinkClass('/PizzaGrande')}>
                   Pizza Grande
                 </Link>
               </li>
               <li>
-                <Link href="/AcaiItem" className="block py-2 md:py-0 hover:text-gray-300">
+                <Link href="/AcaiItem" className={getLinkClass('/AcaiItem')}>
                   Açaí
                 </Link>
               </li>
+              {/* Usando scrollToProjects para rolar até a seção de projetos */}
               <li>
-                <Link href="/#contact" className="block py-2 md:py-0 hover:text-gray-300">
+                <button onClick={scrollToProjects} className={getLinkClass('/#projects')}>
+                  Projetos
+                </button>
+              </li>
+              <li>
+                <Link href="/#contact" className={getLinkClass('/#contact')}>
                   Contato
                 </Link>
               </li>

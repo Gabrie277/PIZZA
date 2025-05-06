@@ -1,32 +1,25 @@
 'use client';
 
 import React from "react";
-import {
-  FaMotorcycle,
-} from "react-icons/fa";
-import {
-  SiIfood,
-} from "react-icons/si";
-import {
-  MdDeliveryDining,
-  MdShoppingCart,
-} from "react-icons/md";
+import { FaMotorcycle } from "react-icons/fa";
+import { SiIfood } from "react-icons/si";
+import { MdDeliveryDining, MdShoppingCart } from "react-icons/md";
+import Image from 'next/image'; // Importando o componente Image do Next.js
 
 const Skills = () => {
   const comidas = [
     {
-      nome: "nossa loja ",
-      imagem: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xcomo-decorar-uma-lanchonete-com-pouco-dinheiro.jpg.pagespeed.ic.yIrOpJ0OYd.jpg",
+      nome: "Nossa loja",
+      image: "https://www.emporiotambo.com.br/pub/media/resized/1300x800/ves/blog/xcomo-decorar-uma-lanchonete-com-pouco-dinheiro.jpg.pagespeed.ic.yIrOpJ0OYd.jpg",
     },
     {
       nome: "Atendimento",
-      imagem: "https://casaeconstrucao.org/wp-content/uploads/2017/04/decora%C3%A7%C3%A3o-de-lanchonete-6.jpg",
+      image: "https://casaeconstrucao.org/wp-content/uploads/2017/04/decora%C3%A7%C3%A3o-de-lanchonete-6.jpg",
     },
     {
-      nome: "Caboradores",
-      imagem: "https://i.pinimg.com/236x/49/6f/27/496f27c2662506d12d13eb232cb14249.jpg",
+      nome: "Colaboradores",
+      image: "https://i.pinimg.com/236x/49/6f/27/496f27c2662506d12d13eb232cb14249.jpg",
     },
-    
   ];
 
   return (
@@ -49,10 +42,13 @@ const Skills = () => {
               key={index}
               className="bg-white shadow-lg rounded-2xl overflow-hidden"
             >
-              <img
-                src={item.imagem}
+              <Image
+                src={item.image}
                 alt={item.nome}
+                width={500}  // Definindo a largura
+                height={300} // Definindo a altura
                 className="w-full h-64 object-cover"
+                loading="lazy"
               />
               <div className="p-4 text-center">
                 <h3 className="text-xl font-semibold">{item.nome}</h3>

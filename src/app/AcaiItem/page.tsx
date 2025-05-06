@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import Image from "next/image";
 
 interface AcaiItem {
   title: string;
@@ -48,11 +49,15 @@ const Acai = () => {
               className="bg-white p-5 rounded-lg shadow-lg hover:shadow-2xl transition"
             >
               {item.imagem && (
-                <img
-                  src={item.imagem}
-                  alt={item.title}
-                  className="w-40 h-40 object-cover rounded-full mb-4 mx-auto"
-                />
+                <div className="w-40 h-40 relative mb-4 mx-auto">
+                  <Image
+                    src={item.imagem}
+                    alt={item.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-full"
+                  />
+                </div>
               )}
               <h3 className="text-xl font-bold mb-2 text-center">{item.title}</h3>
               <p className="text-gray-700 mb-4 text-center">{item.description}</p>

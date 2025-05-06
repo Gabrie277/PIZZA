@@ -1,6 +1,25 @@
 import { FaTwitter, FaGithub, FaLinkedin } from 'react-icons/fa';
+import Image from "next/image";
 
 const Contact = () => {
+  const clientes = [
+    {
+      nome: "Lucas Oliveira",
+      comentario: "A melhor pizza da região! Atendimento impecável.",
+      foto: "/foto3.jpg" // Use caminho relativo ou URL válida
+    },
+    {
+      nome: "Carlos Mendes",
+      comentario: "Comida deliciosa e entrega rápida!",
+      foto: "/foto1.jpg"
+    },
+    {
+      nome: "Clau Oliveira",
+      comentario: "Sempre peço aqui. Nunca me decepcionou!",
+      foto: "/foto5.jpg"
+    },
+  ];
+
   return (
     <section id="contact" className="bg-gray-900 text-white py-10 px-4">
       <div className="max-w-6xl mx-auto">
@@ -69,29 +88,15 @@ const Contact = () => {
         <div className="mb-16">
           <h3 className="text-2xl font-semibold mb-6 text-center">O que dizem nossos clientes</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                nome: "Lucas Oliveira ",
-                comentario: "A melhor pizza da região! Atendimento impecável.",
-                foto: "foto3.jpg"
-              },
-              {
-                nome: "Carlos Mendes",
-                comentario: "Comida deliciosa e entrega rápida!",
-                foto: "foto1.jpg"
-              },
-              {
-                nome: "Clau  Oliveira",
-                comentario: "Sempre peço aqui. Nunca me decepcionou!",
-                foto: "foto5.jpg"
-              },
-            ].map((c, i) => (
+            {clientes.map((c, i) => (
               <div key={i} className="bg-gray-800 p-6 rounded-lg shadow-lg">
                 <div className="flex items-center mb-4">
-                  <img
+                  <Image
                     src={c.foto}
                     alt={c.nome}
-                    className="w-20 h-20 rounded-full mr-4"
+                    width={80} // Tamanho fixo da imagem
+                    height={80} // Tamanho fixo da imagem
+                    className="rounded-full mr-4"
                   />
                   <p className="text-white font-semibold">{c.nome}</p>
                 </div>

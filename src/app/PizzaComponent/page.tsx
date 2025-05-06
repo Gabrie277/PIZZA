@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import Image from "next/image";
 
 interface Pizza {
   title: string;
@@ -89,14 +90,18 @@ const PizzaComponent = () => {
           {pizzas.map((pizza, index) => (
             <div
               key={index}
-              className="bg-white p-5 rounded-lg shadow-lg hover:shadow-2xl transition text-center flex flex-col h-[420px]"
+              className="bg-white p-5 rounded-lg shadow-lg hover:shadow-2xl transition text-center flex flex-col h-[440px]"
             >
               {pizza.imagem && (
-                <img
-                  src={pizza.imagem}
-                  alt={pizza.title}
-                  className="w-40 h-40 object-cover rounded-full mx-auto mb-4"
-                />
+                <div className="w-40 h-40 relative mx-auto mb-4">
+                  <Image
+                    src={pizza.imagem}
+                    alt={pizza.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-full"
+                  />
+                </div>
               )}
               <h3 className="text-xl font-bold mb-2">{pizza.title}</h3>
               <p className="text-gray-700 text-sm mb-4 flex-1">{pizza.description}</p>
@@ -115,3 +120,4 @@ const PizzaComponent = () => {
 };
 
 export default PizzaComponent;
+
